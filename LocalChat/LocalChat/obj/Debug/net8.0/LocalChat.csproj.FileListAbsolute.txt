@@ -1,0 +1,14 @@
+C:\csChat\LocalChat\LocalChat\bin\Debug\net8.0\LocalChat.exe
+C:\csChat\LocalChat\LocalChat\bin\Debug\net8.0\LocalChat.deps.json
+C:\csChat\LocalChat\LocalChat\bin\Debug\net8.0\LocalChat.runtimeconfig.json
+C:\csChat\LocalChat\LocalChat\bin\Debug\net8.0\LocalChat.dll
+C:\csChat\LocalChat\LocalChat\bin\Debug\net8.0\LocalChat.pdb
+C:\csChat\LocalChat\LocalChat\obj\Debug\net8.0\LocalChat.GeneratedMSBuildEditorConfig.editorconfig
+C:\csChat\LocalChat\LocalChat\obj\Debug\net8.0\LocalChat.AssemblyInfoInputs.cache
+C:\csChat\LocalChat\LocalChat\obj\Debug\net8.0\LocalChat.AssemblyInfo.cs
+C:\csChat\LocalChat\LocalChat\obj\Debug\net8.0\LocalChat.csproj.CoreCompileInputs.cache
+C:\csChat\LocalChat\LocalChat\obj\Debug\net8.0\LocalChat.dll
+C:\csChat\LocalChat\LocalChat\obj\Debug\net8.0\refint\LocalChat.dll
+C:\csChat\LocalChat\LocalChat\obj\Debug\net8.0\LocalChat.pdb
+C:\csChat\LocalChat\LocalChat\obj\Debug\net8.0\LocalChat.genruntimeconfig.cache
+C:\csChat\LocalChat\LocalChat\obj\Debug\net8.0\ref\LocalChat.dll

@@ -1,0 +1,14 @@
+C:\csChat\LocalChatClient\LocalChatClient\bin\Debug\net8.0\LocalChatClient.exe
+C:\csChat\LocalChatClient\LocalChatClient\bin\Debug\net8.0\LocalChatClient.deps.json
+C:\csChat\LocalChatClient\LocalChatClient\bin\Debug\net8.0\LocalChatClient.runtimeconfig.json
+C:\csChat\LocalChatClient\LocalChatClient\bin\Debug\net8.0\LocalChatClient.dll
+C:\csChat\LocalChatClient\LocalChatClient\bin\Debug\net8.0\LocalChatClient.pdb
+C:\csChat\LocalChatClient\LocalChatClient\obj\Debug\net8.0\LocalChatClient.GeneratedMSBuildEditorConfig.editorconfig
+C:\csChat\LocalChatClient\LocalChatClient\obj\Debug\net8.0\LocalChatClient.AssemblyInfoInputs.cache
+C:\csChat\LocalChatClient\LocalChatClient\obj\Debug\net8.0\LocalChatClient.AssemblyInfo.cs
+C:\csChat\LocalChatClient\LocalChatClient\obj\Debug\net8.0\LocalChatClient.csproj.CoreCompileInputs.cache
+C:\csChat\LocalChatClient\LocalChatClient\obj\Debug\net8.0\LocalChatClient.dll
+C:\csChat\LocalChatClient\LocalChatClient\obj\Debug\net8.0\refint\LocalChatClient.dll
+C:\csChat\LocalChatClient\LocalChatClient\obj\Debug\net8.0\LocalChatClient.pdb
+C:\csChat\LocalChatClient\LocalChatClient\obj\Debug\net8.0\LocalChatClient.genruntimeconfig.cache
+C:\csChat\LocalChatClient\LocalChatClient\obj\Debug\net8.0\ref\LocalChatClient.dll
