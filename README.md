@@ -1,6 +1,6 @@
 # LocalChat
 <div id = "header" align = "center">
-  <img src="https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3cWZmcnBmYmxvbDFrczYwa3F1eDY4dnlseDM0bHNtbnZ2YWU1bm85aSZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9dHM/ulZ7gQQz9jwZzv224n/giphy.gif" width = "100"/>
+  <img src="https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3cWZmcnBmYmxvbDFrczYwa3F1eDY4dnlseDM0bHNtbnZ2YWU1bm85aSZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9dHM/ulZ7gQQz9jwZzv224n/giphy.gif" width = "200"/>
 </div>
 Это приложение представляет собой чат, который может быть развёрнут и использован в локальной сети.
 
