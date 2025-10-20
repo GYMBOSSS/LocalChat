@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\csChat\\LocalChatClient\\LocalChatClient\\LocalChatClient.csproj": {}
+    "C:\\LocalChat\\LocalChatClient\\LocalChatClient\\LocalChatClient.csproj": {}
   },
   "projects": {
-    "C:\\csChat\\LocalChatClient\\LocalChatClient\\LocalChatClient.csproj": {
+    "C:\\LocalChat\\LocalChatClient\\LocalChatClient\\LocalChatClient.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\csChat\\LocalChatClient\\LocalChatClient\\LocalChatClient.csproj",
+        "projectUniqueName": "C:\\LocalChat\\LocalChatClient\\LocalChatClient\\LocalChatClient.csproj",
         "projectName": "LocalChatClient",
-        "projectPath": "C:\\csChat\\LocalChatClient\\LocalChatClient\\LocalChatClient.csproj",
+        "projectPath": "C:\\LocalChat\\LocalChatClient\\LocalChatClient\\LocalChatClient.csproj",
         "packagesPath": "C:\\Users\\Александр\\.nuget\\packages\\",
-        "outputPath": "C:\\csChat\\LocalChatClient\\LocalChatClient\\obj\\",
+        "outputPath": "C:\\LocalChat\\LocalChatClient\\LocalChatClient\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\csChat\\LocalChat\\LocalChat\\LocalChat.csproj",
+      "projectUniqueName": "C:\\LocalChat\\LocalChat\\LocalChat\\LocalChat.csproj",
       "projectName": "LocalChat",
-      "projectPath": "C:\\csChat\\LocalChat\\LocalChat\\LocalChat.csproj",
+      "projectPath": "C:\\LocalChat\\LocalChat\\LocalChat\\LocalChat.csproj",
       "packagesPath": "C:\\Users\\Александр\\.nuget\\packages\\",
-      "outputPath": "C:\\csChat\\LocalChat\\LocalChat\\obj\\",
+      "outputPath": "C:\\LocalChat\\LocalChat\\LocalChat\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

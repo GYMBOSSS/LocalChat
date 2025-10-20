@@ -1,18 +1,18 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\csChat\\LocalChat\\",
+  "WorkspaceRootPath": "C:\\LocalChat\\LocalChat\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1AA30458-1F4E-43A1-8674-B28999B32784}|LocalChat\\LocalChat.csproj|c:\\cschat\\localchat\\localchat\\server.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1AA30458-1F4E-43A1-8674-B28999B32784}|LocalChat\\LocalChat.csproj|solutionrelative:localchat\\server.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1AA30458-1F4E-43A1-8674-B28999B32784}|LocalChat\\LocalChat.csproj|c:\\localchat\\localchat\\localchat\\services\\server.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1AA30458-1F4E-43A1-8674-B28999B32784}|LocalChat\\LocalChat.csproj|solutionrelative:localchat\\services\\server.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1AA30458-1F4E-43A1-8674-B28999B32784}|LocalChat\\LocalChat.csproj|c:\\cschat\\localchat\\localchat\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{1AA30458-1F4E-43A1-8674-B28999B32784}|LocalChat\\LocalChat.csproj|c:\\localchat\\localchat\\localchat\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1AA30458-1F4E-43A1-8674-B28999B32784}|LocalChat\\LocalChat.csproj|solutionrelative:localchat\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1AA30458-1F4E-43A1-8674-B28999B32784}|LocalChat\\LocalChat.csproj|c:\\cschat\\localchat\\localchat\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1AA30458-1F4E-43A1-8674-B28999B32784}|LocalChat\\LocalChat.csproj|solutionrelative:localchat\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1AA30458-1F4E-43A1-8674-B28999B32784}|LocalChat\\LocalChat.csproj|c:\\localchat\\localchat\\localchat\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1AA30458-1F4E-43A1-8674-B28999B32784}|LocalChat\\LocalChat.csproj|solutionrelative:localchat\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -28,11 +28,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Server.cs",
-              "DocumentMoniker": "C:\\csChat\\LocalChat\\LocalChat\\Server.cs",
-              "RelativeDocumentMoniker": "LocalChat\\Server.cs",
-              "ToolTip": "C:\\csChat\\LocalChat\\LocalChat\\Server.cs",
-              "RelativeToolTip": "LocalChat\\Server.cs",
-              "ViewState": "AgIAADsAAAAAAAAAAAAIwFIAAABcAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\LocalChat\\LocalChat\\LocalChat\\Services\\Server.cs",
+              "RelativeDocumentMoniker": "LocalChat\\Services\\Server.cs",
+              "ToolTip": "C:\\LocalChat\\LocalChat\\LocalChat\\Services\\Server.cs",
+              "RelativeToolTip": "LocalChat\\Services\\Server.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFQAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-05T11:29:11.042Z",
               "IsPinned": true,
@@ -46,24 +46,23 @@
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "User.cs",
-              "DocumentMoniker": "C:\\csChat\\LocalChat\\LocalChat\\User.cs",
-              "RelativeDocumentMoniker": "LocalChat\\User.cs",
-              "ToolTip": "C:\\csChat\\LocalChat\\LocalChat\\User.cs",
-              "RelativeToolTip": "LocalChat\\User.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\LocalChat\\LocalChat\\LocalChat\\Models\\User.cs",
+              "RelativeDocumentMoniker": "LocalChat\\Models\\User.cs",
+              "ToolTip": "C:\\LocalChat\\LocalChat\\LocalChat\\Models\\User.cs",
+              "RelativeToolTip": "LocalChat\\Models\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-07T10:44:27.424Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-07T10:44:27.424Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\csChat\\LocalChat\\LocalChat\\Program.cs",
+              "DocumentMoniker": "C:\\LocalChat\\LocalChat\\LocalChat\\Program.cs",
               "RelativeDocumentMoniker": "LocalChat\\Program.cs",
-              "ToolTip": "C:\\csChat\\LocalChat\\LocalChat\\Program.cs",
+              "ToolTip": "C:\\LocalChat\\LocalChat\\LocalChat\\Program.cs",
               "RelativeToolTip": "LocalChat\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-13T13:09:46.006Z",
               "EditorCaption": ""

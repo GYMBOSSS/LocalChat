@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "aUTzF6cxjOU=",
+  "dgSpecHash": "yA/O/lcn0oc=",
   "success": true,
-  "projectFilePath": "C:\\csChat\\LocalChatClient\\LocalChatClient\\LocalChatClient.csproj",
+  "projectFilePath": "C:\\LocalChat\\LocalChatClient\\LocalChatClient\\LocalChatClient.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

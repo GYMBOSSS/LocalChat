@@ -66,24 +66,31 @@ namespace LocalChat
         {
             NetworkStream stream = user.getClient().GetStream();
             string optMessage = await recieveMessage(stream);
-            if (optMessage == null)
+            switch (optMessage)
             {
-                Console.WriteLine("Клиент отключен");
+                case null:
+                    Console.WriteLine("Клиент отключен");
+                    break;
+
+                case "WRITE":
+                    sendMessage(getListUsers(users), stream);
+                    int userIndex = int.Parse(await recieveMessage(stream));
+                    User currentUser = users[userIndex];
+                    sendMessage($"Начат чат с пользователем {currentUser.getUserName()}:{currentUser.getClient().Client.RemoteEndPoint.ToString()}",stream);
+                    NetworkStream sendStream = currentUser.getClient().GetStream();
+                    while (true)
+                    {
+                        sendMessage($"{currentUser.getUserName()}: {await recieveMessage(stream)}", sendStream);
+                    }
+                    break;
+
+                case "GETUSERS":
+                    sendMessage(getListUsers(users), stream);
+                    break;
             }
-            else if (optMessage == "WRITE") {
-                sendMessage(getListUsers(users), stream);
-                int userIndex = int.Parse(await recieveMessage(stream));
-                User currentUser = users[userIndex];
-                sendMessage($"Начат чат с пользователем {currentUser.getUserName()}:{currentUser.getClient().Client.RemoteEndPoint.ToString()}",stream);
-                NetworkStream sendStream = currentUser.getClient().GetStream();
-                while (true){
-                    sendMessage($"{currentUser.getUserName()}: {await recieveMessage(stream)}", sendStream);
-                }
-            }
-            else if (optMessage == "GETUSERS") {  sendMessage(getListUsers(users), stream);}
         }
 
-        static string getListUsers(List<User> users)//формирует строку, в которой отображается список пользователей
+        static string getListUsers(List<User> users) //формирует строку, в которой отображается список пользователей
         {
             string message = "Подключенные пользователи:\n";
             for (int i = 0; i < users.Count; i++)

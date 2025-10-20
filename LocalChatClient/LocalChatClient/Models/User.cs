@@ -6,20 +6,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net.Sockets;
 
-namespace LocalChatClient
+namespace LocalChatClient.Models
 {
     internal class User
     {
-        TcpClient client;
-        string userName;
-
+        TcpClient client {  get; set; }
+        string userName { get; set; }
         public User(TcpClient client, string userName)
         {
             this.client = client;
             this.userName = userName;
         }
-
-        public TcpClient getClient() { return client; }
-        public string getUserName() { return userName; }
     }
 }
