@@ -13,7 +13,7 @@
   <img src="https://komarev.com/ghpvc/?username=GYMBOSSS&style=flat-square&color=blue" alt=""/>
 </div>
 
-<div>
+<div align = "center">
   <img src="https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3dmoxOWRlNnJkMTd2aHp6eWFpenJkOTlhZDhueDhvMnFjMGt6c2FtcSZlcD12MV9naWZzX3JlbGF0ZWQmY3Q9Zw/SWoSkN6DxTszqIKEqv/giphy.gif" heingt="300" width="600">
 </div>
 
