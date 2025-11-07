@@ -34,8 +34,7 @@
               "RelativeToolTip": "LocalChatClient\\Models\\User.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-07T10:00:23.279Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-07T10:00:23.279Z"
             },
             {
               "$type": "Document",
@@ -45,7 +44,7 @@
               "RelativeDocumentMoniker": "LocalChatClient\\Program.cs",
               "ToolTip": "C:\\LocalChat\\LocalChatClient\\LocalChatClient\\Program.cs",
               "RelativeToolTip": "LocalChatClient\\Program.cs",
-              "ViewState": "AgIAAFgAAAAAAAAAAAAgwDMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAEwAAAAAAAAAAAAgwFwAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-21T13:20:47.582Z",
               "EditorCaption": ""

@@ -1,0 +1,5 @@
+C:\LocalChat\LocalChat\LocalChat\obj\Release\net8.0\LocalChat.GeneratedMSBuildEditorConfig.editorconfig
+C:\LocalChat\LocalChat\LocalChat\obj\Release\net8.0\LocalChat.AssemblyInfoInputs.cache
+C:\LocalChat\LocalChat\LocalChat\obj\Release\net8.0\LocalChat.AssemblyInfo.cs
+C:\LocalChat\LocalChat\LocalChat\obj\Release\net8.0\LocalChat.csproj.CoreCompileInputs.cache
+C:\LocalChat\LocalChat\LocalChat\obj\Release\net8.0\LocalChat.sourcelink.json

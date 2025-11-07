@@ -49,8 +49,8 @@ namespace LocalChatClient
                     {
                         case "/chat":
                             sendMessage("WRITE", stream);
-
-                            string currentUserIndex = Console.ReadLine();
+                            //
+                            string currentUserIndex = Console.ReadLine(); //
                             sendMessage(currentUserIndex,stream);
 
                             Console.WriteLine("Чат начат(напиши /back, чтобы выйти из чата)");

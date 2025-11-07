@@ -32,7 +32,7 @@
               "RelativeDocumentMoniker": "LocalChat\\Services\\Server.cs",
               "ToolTip": "C:\\LocalChat\\LocalChat\\LocalChat\\Services\\Server.cs",
               "RelativeToolTip": "LocalChat\\Services\\Server.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFQAAAAaAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAFQAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-05T11:29:11.042Z",
               "IsPinned": true,
@@ -64,8 +64,7 @@
               "RelativeToolTip": "LocalChat\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T13:09:46.006Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-13T13:09:46.006Z"
             }
           ]
         }
