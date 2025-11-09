@@ -7,8 +7,16 @@
       "RelativeMoniker": "D:0:0:{DC27486F-C878-436C-8996-CAEE7B28F182}|LocalChatClient\\LocalChatClient.csproj|solutionrelative:localchatclient\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{DC27486F-C878-436C-8996-CAEE7B28F182}|LocalChatClient\\LocalChatClient.csproj|c:\\localchat\\localchatclient\\localchatclient\\models\\chatmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DC27486F-C878-436C-8996-CAEE7B28F182}|LocalChatClient\\LocalChatClient.csproj|solutionrelative:localchatclient\\models\\chatmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{DC27486F-C878-436C-8996-CAEE7B28F182}|LocalChatClient\\LocalChatClient.csproj|c:\\localchat\\localchatclient\\localchatclient\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DC27486F-C878-436C-8996-CAEE7B28F182}|LocalChatClient\\LocalChatClient.csproj|solutionrelative:localchatclient\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DC27486F-C878-436C-8996-CAEE7B28F182}|LocalChatClient\\LocalChatClient.csproj|c:\\localchat\\localchatclient\\localchatclient\\localchatclient.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{DC27486F-C878-436C-8996-CAEE7B28F182}|LocalChatClient\\LocalChatClient.csproj|solutionrelative:localchatclient\\localchatclient.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -26,13 +34,38 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "LocalChatClient.csproj",
+              "DocumentMoniker": "C:\\LocalChat\\LocalChatClient\\LocalChatClient\\LocalChatClient.csproj",
+              "RelativeDocumentMoniker": "LocalChatClient\\LocalChatClient.csproj",
+              "ToolTip": "C:\\LocalChat\\LocalChatClient\\LocalChatClient\\LocalChatClient.csproj",
+              "RelativeToolTip": "LocalChatClient\\LocalChatClient.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-11-08T10:49:35.358Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "ChatMessage.cs",
+              "DocumentMoniker": "C:\\LocalChat\\LocalChatClient\\LocalChatClient\\Models\\ChatMessage.cs",
+              "RelativeDocumentMoniker": "LocalChatClient\\Models\\ChatMessage.cs",
+              "ToolTip": "C:\\LocalChat\\LocalChatClient\\LocalChatClient\\Models\\ChatMessage.cs",
+              "RelativeToolTip": "LocalChatClient\\Models\\ChatMessage.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAgAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-08T10:49:34.156Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\LocalChat\\LocalChatClient\\LocalChatClient\\Models\\User.cs",
               "RelativeDocumentMoniker": "LocalChatClient\\Models\\User.cs",
               "ToolTip": "C:\\LocalChat\\LocalChatClient\\LocalChatClient\\Models\\User.cs",
               "RelativeToolTip": "LocalChatClient\\Models\\User.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAeAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAACMAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-07T10:00:23.279Z",
               "EditorCaption": ""
@@ -45,7 +78,7 @@
               "RelativeDocumentMoniker": "LocalChatClient\\Program.cs",
               "ToolTip": "C:\\LocalChat\\LocalChatClient\\LocalChatClient\\Program.cs",
               "RelativeToolTip": "LocalChatClient\\Program.cs",
-              "ViewState": "AgIAAFgAAAAAAAAAAAAgwDMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-21T13:20:47.582Z",
               "EditorCaption": ""

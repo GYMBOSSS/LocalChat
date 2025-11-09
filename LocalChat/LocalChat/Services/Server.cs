@@ -7,114 +7,324 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Text.Json;
 using LocalChatClient;
+using LocalChat.Services.Interfaces;
 
-namespace LocalChat
+namespace AleksandrP.Services
 {
-    internal class Server
+    internal class Server : IServer
     {
-        TcpListener server;
-        static List<User> users;
+        private readonly TcpListener _listener;
+        private readonly List<User> _connectedUsers;
+        private readonly object _usersLock = new object();
+        private CancellationTokenSource? _cancellationTokenSource;
+        private bool _isRunning;
 
-        public Server(IPEndPoint endPoint)
+        public IReadOnlyList<User> ConnectedUsers
         {
-            server = new TcpListener(endPoint);
-            users = new List<User>();
-
-            waitClientAsync(server, users);
-        }
-
-        static async void waitClientAsync(TcpListener server, List<User> users)
-        {
-            try
+            get
             {
-                server.Start();
-                Console.WriteLine("Сервер запущен, ожидание подключений...");
-
-                while (true)
+                lock (_usersLock) 
                 {
-                    TcpClient client = await server.AcceptTcpClientAsync();
-                    NetworkStream stream = client.GetStream();
-                    
-                    
-                    User user = new User(client, await recieveMessage(stream));
-                    Console.WriteLine($"Подключен пользователь: {user.getUserName()} - {user.getClient().Client.RemoteEndPoint}");
-
-                    if (client.Connected)
-                    {
-                        users.Add(user);
-                    }
-
-                    foreach (User user_ in users) { 
-                        NetworkStream userStream = user_.getClient().GetStream();
-                        sendMessage(getListUsers(users), userStream);
-                    }
-
-                    handleClientAsync(user);
+                    return _connectedUsers.ToList();
                 }
             }
-            catch (Exception ex)
+        }
+
+        public event EventHandler<User>? UserConnected;
+        public event EventHandler<User>? UserDisconnected;  
+        public Server(IPEndPoint endPoint)
+        {
+            _listener = new TcpListener(endPoint);
+            _connectedUsers = new List<User>();
+        }
+
+        public async Task StartAsync()
+        {
+            if (_isRunning) return;
+
+            _cancellationTokenSource = new CancellationTokenSource();
+            _isRunning = true;
+
+            try
             {
-                Console.WriteLine(ex.Message);
+                _listener.Start();
+                Console.WriteLine($"Server is started on {_listener.LocalEndpoint}");
+
+                _ = Task.Run(() => AcceptClientsAsync(_cancellationTokenSource.Token));
             }
-            finally
+            catch (Exception ex) 
             {
-                server.Stop();
+                Console.WriteLine($"Error in server starting: {ex.Message}");
             }
         }
 
-        static async Task handleClientAsync(User user)
+        public async Task StopAsync()
         {
-            NetworkStream stream = user.getClient().GetStream();
-            string optMessage = await recieveMessage(stream);
-            switch (optMessage)
+            if (!_isRunning) return;
+
+            _cancellationTokenSource?.Cancel();
+            _isRunning = false;
+
+            lock (_usersLock) 
             {
-                case null:
-                    Console.WriteLine("Клиент отключен");
+                foreach (var user in _connectedUsers)
+                { 
+                    user.Client.Close();
+                }
+                _connectedUsers.Clear();
+            }
+
+            _listener.Stop();
+            Console.WriteLine("Server stopped");
+        }
+
+        private async Task AcceptClientsAsync(CancellationToken cancellationToken)
+        {
+            while (!cancellationToken.IsCancellationRequested) 
+            {
+                try
+                {
+                    var tcpClient = await _listener.AcceptTcpClientAsync().ConfigureAwait(false);
+                    _ = Task.Run(() => HandleClientAsync(tcpClient, cancellationToken), cancellationToken);
+                }
+                catch (ObjectDisposedException ex) 
+                {
+                    break;
+                }
+                catch(Exception ex) 
+                {
+                    Console.WriteLine($"Error accepting client: {ex.Message}");
+                }
+            }
+        }
+
+        private async Task HandleClientAsync(TcpClient tcpClient, CancellationToken cancellationToken)
+        {
+            User? user = null;
+            try
+            {
+                var userName = await ReceiveMessageAsync(tcpClient.GetStream(), cancellationToken);
+                if (string.IsNullOrWhiteSpace(userName))
+                {
+                    tcpClient.Close();
+                    return;
+                }
+
+                user = new User(tcpClient, userName.Trim());
+
+                lock (_usersLock)
+                {
+                    _connectedUsers.Add(user);
+                }
+
+                UserConnected?.Invoke(this, user);
+                Console.WriteLine($"User connected: {user.UserName} - {user.RemoteEndPoint}");
+
+                await BroadcastUserListAsync();
+
+                await ProcessClientMessagesAsync(user, cancellationToken);
+            }
+            catch (Exception ex) when (ex is OperationCanceledException || ex is IOException)
+            { }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error handling client: {ex.Message}");
+            }
+            finally 
+            {
+                if (user != null)
+                {
+                    lock (_usersLock) 
+                    {
+                        _connectedUsers.Remove(user);
+                    }
+
+                    UserDisconnected?.Invoke(this, user);
+                    Console.WriteLine($"User disconnected: {user.UserName}");
+
+                    await BroadcastUserListAsync();
+                }
+            }
+        }
+        private async Task ProcessClientMessagesAsync(User user, CancellationToken cancellationToken)
+        {
+            var stream = user.Stream;
+
+            while(!cancellationToken.IsCancellationRequested && user.Client.Connected)
+            {
+                try
+                {
+                    while (!stream.DataAvailable)
+                    {
+                        await Task.Delay(100, cancellationToken);
+                        continue;
+                    }
+
+                    var message = await ReceiveMessageAsync(stream, cancellationToken);
+
+                    if (string.IsNullOrEmpty(message)) break;
+
+                    await ProcessClientCommandAsync(user, message, cancellationToken);
+                }
+                catch (Exception ex) when (ex is OperationCanceledException || ex is IOException)
+                {
+                    break;
+                }
+                catch (Exception ex) 
+                {
+                    Console.WriteLine($"Error processing message from {user.UserName}: {ex.Message}");
+                    break;
+                }
+            } 
+        }
+        private async Task ProcessClientCommandAsync(User user, string command, CancellationToken cancellationToken)
+        {
+            switch (command.ToUpper())
+            {
+                case "GETUSERS":
+                    await SendUserListAsync(user);
                     break;
 
                 case "WRITE":
-                    sendMessage(getListUsers(users), stream);
-                    int userIndex = int.Parse(await recieveMessage(stream));
-                    User currentUser = users[userIndex];
-                    sendMessage($"Начат чат с пользователем {currentUser.getUserName()}:{currentUser.getClient().Client.RemoteEndPoint.ToString()}",stream);
-                    NetworkStream sendStream = currentUser.getClient().GetStream();
-                    while (true)
-                    {
-                        sendMessage($"{currentUser.getUserName()}: {await recieveMessage(stream)}", sendStream);
-                    }
+                    await HandlePrivateChatAsync(user, cancellationToken);
                     break;
 
-                case "GETUSERS":
-                    sendMessage(getListUsers(users), stream);
+                default:
+                    // Broadcast regular message
+                    await BroadcastAsync($"{user.UserName}: {command}", user);
                     break;
             }
         }
+        private async Task HandlePrivateChatAsync(User fromUser, CancellationToken cancellationToken)
+        {
+            try
+            {
+                await SendUserListAsync(fromUser);
 
-        static string getListUsers(List<User> users) //формирует строку, в которой отображается список пользователей
+                var targetIndexStr = await ReceiveMessageAsync(fromUser.Stream, cancellationToken);
+                if (!int.TryParse(targetIndexStr, out int targetIndex)) return;
+
+                User? targetUser = null;
+                lock (_usersLock)
+                {
+                    if (targetIndex >= 0 && targetIndex < _connectedUsers.Count)
+                    {
+                        targetUser = _connectedUsers[targetIndex];
+                    }
+                }
+
+                if (targetUser == null || targetUser == fromUser)
+                {
+                    await fromUser.SendAsync("Invalid user selection.");
+                    return;
+                }
+
+                await fromUser.SendAsync($"Started chat with {targetUser.UserName}");
+
+                while (!cancellationToken.IsCancellationRequested &&
+                    fromUser.Client.Connected &&
+                    targetUser.Client.Connected)
+                {
+                    var message = await ReceiveMessageAsync(fromUser.Stream, cancellationToken);
+                    if (string.IsNullOrEmpty(message)) break;
+
+                    if (message.Equals("/back", StringComparison.OrdinalIgnoreCase)) break;
+
+                    await targetUser.SendAsync($"{fromUser.UserName}: {message}");
+                }
+
+                await fromUser.SendAsync("Chat ended");
+            }
+            catch (Exception ex) 
+            {
+                Console.WriteLine($"Error in private chat: {ex.Message}");
+            }
+        }
+
+        public async Task BroadcastAsync(string message, User? excludeUser = null)
+        {
+            List<User> usersToNotify;
+            lock (_usersLock)
+            {
+                usersToNotify = _connectedUsers.ToList();
+            }
+
+            var tasks = usersToNotify
+                .Where(user => user != excludeUser)
+                .Select(user => SendSafeAsync(user, message));
+
+            await Task.WhenAll(tasks);
+        }
+
+        public async Task SendToUserAsync(string userId, string message)
+        {
+            User? user;
+            lock (_usersLock)
+            {
+                user = _connectedUsers.FirstOrDefault(u => u.Id == userId);
+            }
+            
+            if (user != null)
+            {
+                await SendSafeAsync(user, message);
+            }
+        }
+
+        private async Task SendSafeAsync(User user, string message)
+        {
+            try
+            {
+                await user.SendAsync(message);
+            }
+            catch(Exception ex) 
+            {
+                Console.WriteLine($"Error sending message to {user.UserName}: {ex.Message}");
+            }
+        }
+
+        private async Task BroadcastUserListAsync()
+        {
+            var userList = GetFormattedUserList();
+            await BroadcastAsync(userList);
+        }
+        private async Task SendUserListAsync(User user)
+        {
+            var userList = GetFormattedUserList();
+            await SendSafeAsync(user, userList);
+        }
+
+        private string GetFormattedUserList()
+        {
+            lock (_usersLock)
+            {
+                return GetListUsers(_connectedUsers);
+            }
+        }
+
+        static string GetListUsers(List<User> users) //формирует строку, в которой отображается список пользователей
         {
             string message = "Подключенные пользователи:\n";
             for (int i = 0; i < users.Count; i++)
             {
-                message = message + $"\t{i}. {users[i].getUserName()}\n";
+                message = message + $"\t{i}. {users[i].UserName}\n";
             }
 
             return message;
         }
 
-        static public void sendMessage(string message, NetworkStream stream)//отправляет сообщение
-        {
-        
-            byte[] byteOptMessage = Encoding.UTF8.GetBytes(message);
-            stream.Write(byteOptMessage, 0, byteOptMessage.Length);
-        }
-
-        static public async Task<string> recieveMessage(NetworkStream stream)//получает сообщение
+        static public async Task<string> ReceiveMessageAsync(NetworkStream stream, CancellationToken cancellationToken)//получает сообщение
         { 
             byte[] buffer = new byte[4096];
             int byteReaded = await stream.ReadAsync(buffer, 0,buffer.Length);
             string message = Encoding.UTF8.GetString(buffer, 0, byteReaded);
 
             return message;
+        }
+
+        public void Dispose()
+        {
+            StopAsync().Wait();
+            _cancellationTokenSource?.Dispose();
         }
     }
 }
